@@ -8,7 +8,7 @@ const myLibrary = [
     }
 ];
 
-const body = document.querySelector("body");
+const body = document.querySelector(".Shelf");
 
 function Book(title,author,pages,read){
     this.title = title;
@@ -40,7 +40,7 @@ function checkIfSame(Library, newBook){
 }
 
 function deleteChildren(){
-        let e = document.querySelector("body");
+        let e = document.querySelector(".Shelf");
         let child = e.lastElementChild;
 
         while (child) {
