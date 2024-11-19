@@ -4,7 +4,7 @@ const myLibrary = [
         author: "Max Mustermann",
         pages: 420,
         read: "not read",
-        info: "none",
+        info: () => "none",
     }
 ];
 
@@ -61,7 +61,7 @@ function display(){
     for(let i = 0; i < myLibrary.length; i++){
         let book = document.createElement("div");
         book.setAttribute("class", "book");
-        book.textContent = addContent(myLibrary[i]);
+        book.textContent = addContent(myLibrary[i]); //if no other solution change to innerHTMl
         body.appendChild(book);
     }
 }
