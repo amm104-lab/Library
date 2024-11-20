@@ -99,6 +99,16 @@ function addContent(book){
             `;
 }
 
+function changeContext(book){
+    if(myLibrary[book.dataset.index].read == "read"){
+        myLibrary[book.dataset.index].read = "not read yet"
+    }
+    else{
+        myLibrary[book.dataset.index].read = "read";
+    }
+    display();
+}
+
 function display(){
     deleteChildren();
     for(let i = 0; i < myLibrary.length; i++){
@@ -107,6 +117,7 @@ function display(){
         book.setAttribute("data-index", `${i}`);
         book.textContent = addContent(myLibrary[i]);
         shelf.appendChild(book);
+
         let deleteButton = document.createElement("button");
         deleteButton.setAttribute("class", "deleteButton");
         deleteButton.textContent = "Delete";
@@ -117,6 +128,17 @@ function display(){
             console.log(book.dataset.index)
             myLibrary.splice(book.dataset.index,book.dataset.index);
             display();
+        })
+
+        let statusButton = document.createElement("button");
+        statusButton.setAttribute("class","statusButton");
+        statusButton.textContent= "Change read status";
+        book.appendChild(statusButton);
+
+        statusButton.addEventListener("click", () =>{
+            console.log("pressed");
+            console.log(myLibrary[book.dataset.index].read);
+            changeContext(book);
         })
     }
 }

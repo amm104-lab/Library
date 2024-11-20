@@ -59,3 +59,14 @@ select{
     margin: 5px;
     padding: 10px 16px;
 }
+
+.statusButton{
+    width: 100%;
+    background-color: #5278ae;
+    border-style: none;
+    font-size: 20px;
+    font-weight: 500;
+    outline: none;
+    margin: 5px;
+    padding: 10px 16px;
+}
