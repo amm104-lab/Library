@@ -16,6 +16,7 @@ const newTitle = document.querySelector(".title");
 const newAuthor = document.querySelector(".author");
 const newPages = document.querySelector(".pages");
 const newRead = document.querySelector(".read");
+const deleteButton = document.querySelector(".deleteButton");
 
 
 newBookButton.addEventListener("click", () => {
@@ -31,7 +32,6 @@ submitButton.addEventListener("click", () => {
     }
     newBookDialog.close();
 })
-
 
 function isEmpty(newTitle, newAuthor,newPages){
         if(newTitle == ""){
@@ -95,7 +95,8 @@ function addContent(book){
     return `Title: ${book.title}
             Author: ${book.author}
             Pages: ${book.pages}
-            Read: ${book.read}`;
+            Read: ${book.read}
+            `;
 }
 
 function display(){
@@ -103,9 +104,20 @@ function display(){
     for(let i = 0; i < myLibrary.length; i++){
         let book = document.createElement("div");
         book.setAttribute("class", "book");
-        book.setAttribute("data", `${i}`);
+        book.setAttribute("data-index", `${i}`);
         book.textContent = addContent(myLibrary[i]);
         shelf.appendChild(book);
+        let deleteButton = document.createElement("button");
+        deleteButton.setAttribute("class", "deleteButton");
+        deleteButton.textContent = "Delete";
+        book.appendChild(deleteButton);
+
+        deleteButton.addEventListener("click", () => {
+            console.log("pressed")
+            console.log(book.dataset.index)
+            myLibrary.splice(book.dataset.index,book.dataset.index);
+            display();
+        })
     }
 }
 
