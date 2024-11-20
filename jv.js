@@ -9,16 +9,42 @@ const myLibrary = [
 ];
 
 const shelf = document.querySelector(".Shelf");
-const newTitle = document.querySelector(".newBook");
+const newBookDialog = document.querySelector(".newBook");
 const cancelButton = document.querySelector(".cancel");
 const newBookButton = document.querySelector(".newBookButton");
+const submitButton = document.querySelector(".submit");
 
-newTitle.returnValue = "title";
+const newTitle = document.querySelector(".title");
+const newAuthor = document.querySelector(".author");
+const newPages = document.querySelector(".pages");
+const newRead = document.querySelector(".read");
 
 newBookButton.addEventListener("click", () => {
-    newTitle.showModal();
-    openCheck(newTitle);
+    newBookDialog.showModal();
+    openCheck(newBookDialog);
 })
+
+submitButton.addEventListener("click", () => {
+    console.log("submitted");
+    let newBook = new Book(newTitle.value,newAuthor.value,newPages.value,newRead.value);
+    if(isEmpty(newTitle.value,newAuthor.value,newPages.value,newRead.value) == false){
+        addBookToLibrary(myLibrary,newBook);
+    }
+    newBookDialog.close();
+})
+
+function isEmpty(newTitle, newAuthor,newPages,newRead){
+        if(newTitle == ""){
+            if(newAuthor == ""){
+                if(newPages == ""){
+                    if(newRead == ""){
+                        return true;
+                    }
+                }
+            }
+        }
+    return false;
+}
 
 function openCheck(dialog) {
     if (dialog.open) {
