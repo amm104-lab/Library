@@ -8,7 +8,25 @@ const myLibrary = [
     }
 ];
 
-const body = document.querySelector(".Shelf");
+const shelf = document.querySelector(".Shelf");
+const newTitle = document.querySelector(".newBook");
+const cancelButton = document.querySelector(".cancel");
+const newBookButton = document.querySelector(".newBookButton");
+
+newTitle.returnValue = "title";
+
+newBookButton.addEventListener("click", () => {
+    newTitle.showModal();
+    openCheck(newTitle);
+})
+
+function openCheck(dialog) {
+    if (dialog.open) {
+        console.log("Dialog open");
+    } else {
+        console.log("Dialog closed");
+    }
+}
 
 function Book(title,author,pages,read){
     this.title = title;
@@ -62,9 +80,10 @@ function display(){
         let book = document.createElement("div");
         book.setAttribute("class", "book");
         book.textContent = addContent(myLibrary[i]); //if no other solution change to innerHTMl
-        body.appendChild(book);
+        shelf.appendChild(book);
     }
 }
+
 
 const theHobbit = new Book("The Hobbit","J.R.R. Tolkien",295,"not read yet")
 console.log(theHobbit.info());

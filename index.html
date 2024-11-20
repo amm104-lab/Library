@@ -7,33 +7,38 @@
     <script src="jv.js" defer></script>
 </head>
 <body>
-    <dialog>
+
+    <dialog class="newBook">
         <form method="dialog">
             <div>
                 <label for="title">Title:</label>
-                <input type="text" id="title">
+                <input type="text" class="title" name="title">
             </div>
             <div>
                 <label for="author">Author:</label>
-                <input type="text" id="author">
+                <input type="text" class="author" name="author">
             </div>
             <div>
                 <label for="pages">Pages:</label>
-                <input type="number" id="pages">
+                <input type="number" class="pages" name="pages">
             </div>
             <div>
                 <label for="read">Read?:</label>
-                <input type="text" id="read">
+                <input type="text" class="read" name="read">
             </div>
+
             <div>
-                <button id="cancel" type="reset">Cancel</button>
+                <button class="cancel" type="reset">Cancel</button>
                 <button type="submit">Confirm</button>
             </div>
         </form>
     </dialog>
+
     <div class="Shelf"></div>
+
     <div>
-        <button id="newBookButton">New Book</button>
+        <button class="newBookButton">New Book</button>
     </div>
+
 </body>
 </html>
