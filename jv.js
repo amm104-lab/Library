@@ -105,7 +105,8 @@ function display(){
     for(let i = 0; i < myLibrary.length; i++){
         let book = document.createElement("div");
         book.setAttribute("class", "book");
-        book.textContent = addContent(myLibrary[i]); //if no other solution change to innerHTMl
+        book.setAttribute("data", `${i}`);
+        book.textContent = addContent(myLibrary[i]);
         shelf.appendChild(book);
     }
 }
