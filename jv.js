@@ -1,23 +1,22 @@
 const myLibrary = [
     {
-        title: "hello",
-        author: "Max Mustermann",
-        pages: 420,
-        read: "not read",
+        title: "The Hobbit",
+        author: "J.R.R. Tolkien",
+        pages: 295,
+        read: "not read yet",
         info: () => "none",
     }
 ];
-
 const shelf = document.querySelector(".Shelf");
 const newBookDialog = document.querySelector(".newBook");
 const cancelButton = document.querySelector(".cancel");
 const newBookButton = document.querySelector(".newBookButton");
 const submitButton = document.querySelector(".submit");
-
 const newTitle = document.querySelector(".title");
 const newAuthor = document.querySelector(".author");
 const newPages = document.querySelector(".pages");
 const newRead = document.querySelector(".read");
+
 
 newBookButton.addEventListener("click", () => {
     newBookDialog.showModal();
@@ -32,6 +31,7 @@ submitButton.addEventListener("click", () => {
     }
     newBookDialog.close();
 })
+
 
 function isEmpty(newTitle, newAuthor,newPages,newRead){
         if(newTitle == ""){
@@ -111,7 +111,4 @@ function display(){
 }
 
 
-const theHobbit = new Book("The Hobbit","J.R.R. Tolkien",295,"not read yet")
-console.log(theHobbit.info());
-// console.log(JSON.stringify((myLibrary[0])))
 display();
