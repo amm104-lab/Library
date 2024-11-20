@@ -33,16 +33,14 @@ submitButton.addEventListener("click", () => {
 })
 
 
-function isEmpty(newTitle, newAuthor,newPages,newRead){
+function isEmpty(newTitle, newAuthor,newPages){
         if(newTitle == ""){
             if(newAuthor == ""){
                 if(newPages == ""){
-                    if(newRead == ""){
                         return true;
                     }
                 }
             }
-        }
     return false;
 }
 
