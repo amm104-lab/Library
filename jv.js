@@ -126,7 +126,7 @@ function display(){
         deleteButton.addEventListener("click", () => {
             console.log("pressed")
             console.log(book.dataset.index)
-            myLibrary.splice(book.dataset.index,book.dataset.index);
+            myLibrary.splice(book.dataset.index,1);
             display();
         })
 
